@@ -44,7 +44,7 @@ public class RecyclerViewFragment extends BaseRefreshFragment {
         return rootView;
     }
 
-    private class SampleAdapter extends RecyclerView.Adapter<SampleHolder> {
+    private  class SampleAdapter extends RecyclerView.Adapter<SampleHolder> {
 
         @Override
         public SampleHolder onCreateViewHolder(ViewGroup parent, int pos) {
@@ -65,7 +65,7 @@ public class RecyclerViewFragment extends BaseRefreshFragment {
         }
     }
 
-    private class SampleHolder extends RecyclerView.ViewHolder {
+    private static class SampleHolder extends RecyclerView.ViewHolder {
 
         private View mRootView;
         private ImageView mImageViewIcon;
