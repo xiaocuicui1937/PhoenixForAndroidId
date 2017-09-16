@@ -9,7 +9,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.widget.TextView;
 
-public class TestActivity extends AppCompatActivity {
+public class TestActivity extends AppCompatActivity implements IScreenState {
     private static final String TAG = "TestActivity";
 
     @Override
@@ -54,5 +54,20 @@ public class TestActivity extends AppCompatActivity {
         String id = InstalltionId.id(this);
         Log.i(TAG, deviceId.getDeviceUuid().toString() + "\r\n" + id);
         return result;
+    }
+
+    @Override
+    public void onScreenOn() {
+        Log.i(TAG,"开屏");
+    }
+
+    @Override
+    public void onScreenOff() {
+        Log.i(TAG,"关屏");
+    }
+
+    @Override
+    public void onUserPresent() {
+        Log.i(TAG,"解锁");
     }
 }
