@@ -9,6 +9,8 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.widget.TextView;
 
+import com.sa.all_cui.quick_lib.fix.screenlock.ScreenLockDialog;
+
 public class TestActivity extends AppCompatActivity implements IScreenState {
     private static final String TAG = "TestActivity";
 
@@ -18,7 +20,8 @@ public class TestActivity extends AppCompatActivity implements IScreenState {
         setContentView(R.layout.activity_test);
 
         TextView sbId = (TextView) findViewById(R.id.sb_id);
-
+        ScreenLockManager screenLockManager = new ScreenLockManager(this);
+        screenLockManager.onResume(getSupportFragmentManager());
         sbId.setText(getSbId());
     }
 
@@ -58,16 +61,17 @@ public class TestActivity extends AppCompatActivity implements IScreenState {
 
     @Override
     public void onScreenOn() {
-        Log.i(TAG,"开屏");
+        ScreenLockDialog lockDialog = ScreenLockDialog.newInstance();
+        Log.i(TAG, "开屏");
     }
 
     @Override
     public void onScreenOff() {
-        Log.i(TAG,"关屏");
+        Log.i(TAG, "关屏");
     }
 
     @Override
     public void onUserPresent() {
-        Log.i(TAG,"解锁");
+        Log.i(TAG, "解锁");
     }
 }
